@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
             score += 11
         } else if (card) {
             score += Number(card) 
-        } 
+        }
+         
         if(score > 21){
             scoreBoard.innerHTML = `BUSTED.... DEALER WINS`
         }else{
@@ -51,6 +52,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
             let res = await axios.get("https://deckofcardsapi.com/api/deck/new/") 
             deck_id = res.data.deck_id;
             let shuffled = await axios.get(`https://deckofcardsapi.com/api/deck/${deck_id}/shuffle/`)
+                deck.appendChild(img)
+                //deck.appendChild(stay)
+                //deck.appendChild(hit)
+            
         } catch(err){  
             console.log(err)
         }
@@ -58,7 +63,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const drawTwo = async(id) =>{
         try{
             let drawCards =  await axios.get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=2`)
-            let deck = document.querySelector(".blackJack")
+            let deck = document.querySelector(".cards")
             //deck.innerHTML = ""
             for(let i = 0; i < drawCards.data.cards.length; i++){
                 console.log(drawCards.data["cards"][i]["value"])
@@ -67,8 +72,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 let src = drawCards.data["cards"][i]["image"]
                 img.src = src
                 deck.appendChild(img)
-                deck.appendChild(stay)
-                deck.appendChild(hit)
+                //deck.appendChild(stay)
+                //deck.appendChild(hit)
                 cardValue(drawCards.data["cards"][i]["value"])
                 //deck.removeChild(".start")
             }
@@ -81,7 +86,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const addCard = async(id) =>{
         try{
             let drawCards = await axios.get(`https://deckofcardsapi.com/api/deck/new/draw/?count=1`)
-            let deck2 = document.querySelector(".blackJack")
+            let deck2 = document.querySelector(".cards")
             //deck2.innerHTML = ""
             for(let i = 0; i < drawCards.data.cards.length; i++){
                 console.log(drawCards.data["cards"][i]["value"])
@@ -89,8 +94,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 let src2 = drawCards.data["cards"][i]["image"]
                 img2.src = src2
                 deck2.appendChild(img2)
-                deck2.appendChild(stay)
-                deck2.appendChild(hit)
+                //deck2.appendChild(stay)
+                //deck2.appendChild(hit)
                 cardValue(drawCards.data["cards"][i]["value"])               
            }
         }catch(err){
@@ -107,8 +112,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 let src3 = drawCards.data["cards"][i]["image"]
                 img3.src = src3 
                 opponentDeck.appendChild(img3)
-                opponentDeck.appendChild(stay)
-                opponentDeck.appendChild(hit)
+                //opponentDeck.appendChild(stay)
+                //opponentDeck.appendChild(hit)
                 dealerValue(drawCards.data["cards"][i]["value"])
             }
         } catch(err){
