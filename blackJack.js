@@ -1,20 +1,25 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-    let deck_id
+    //let deck_id
     let start = document.querySelector(".start")
     let stay = document.querySelector(".stay")
     let hit = document.querySelector(".hit")
+    let score = 0 
     const cardValue = (card) =>{ 
         let scoreBoard = document.querySelector(".scoreBoard")
         if(card === "KING" || card === "QUEEN" || card === "JACK"){
             score += 10
-        }else if(card ==="ACE" && value + 11 > 21){
+        }else if(card ==="ACE" && score + 11 > 21){
             score +=1
-        } else if (card === "ACE" && value + 11 < 21){
+        } else if (card === "ACE" && score + 11 < 21){
             score += 11
         } else {
-            score += Number(card)
+            score += card  
         }
-        scoreBoard.innerText = "Your score is: " + (card)
+        scoreBoard.innerHTML = "Your score is: " + score
+        //score.appendChild(scoreBoard)
+        //debugger
+        //scoreBoard.appendChild(card)
+        //debugger
     }
     const shuffle = async() =>{
         try{
@@ -45,11 +50,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         }catch(err){
             console.log(err)
-            debugger
-            
+            //debugger           
         }
-    }
-    
+    }   
     const addCard = async(id) =>{
         try{
             let drawCards = await axios.get(`https://deckofcardsapi.com/api/deck/new/draw/?count=1`)
@@ -63,23 +66,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 deck2.appendChild(img2)
                 deck2.appendChild(stay)
                 deck2.appendChild(hit)
-                cardValue(drawCards.data["cards"][i]["value"])
-                
-                
-            }
+                cardValue(drawCards.data["cards"][i]["value"])               
+           }
         }catch(err){
             console.log(err)
         }
-    }
-    
-    let score = 0 
+    }  
     start.addEventListener("click", ()=>{
         drawTwo(deck_id)
-        cardValue()
+        //cardValue()
     })
     hit.addEventListener("click", ()=>{
         addCard(deck_id)
-        cardValue()
+        //cardValue()
     })
+    
     shuffle()
+    cardValue()
 })
