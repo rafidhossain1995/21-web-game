@@ -15,9 +15,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
             score += 11
         } else if (card) {
             score += Number(card) 
+        } 
+        if(score > 21){
+            scoreBoard.innerHTML = `BUSTED.... DEALER WINS`
+        }else{
+            scoreBoard.innerHTML = `Your score is: ${score}`
         }
-        scoreBoard.innerHTML = `Your score is: ${score}`
     }
+
     const dealerValue = async(card2) =>{
         let scoreBoard2 = document.querySelector(".dealerScore")
         if(card2 === "KING" || card2 === "QUEEN" || card2 === "JACK"){
@@ -27,8 +32,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
         } else if (card2){
             score2 += Number(card2)
         }
-        scoreBoard2.innerHTML = `Your score is: ${score2}`
-    }
+        if(score2 > 21){
+            scoreBoard2.innerHTML = `Dealer Busted, PLAYER WINSSSS!!!!!`
+        } else if (score2 < score){
+            scoreBoard2.innerHTML= `Dealer's Score is ${score2}, PLAYER WINS`
+        } else if (score2 > score){
+            scoreBoard2.innerHTML = `Dealer score is ${score2}..... Dealer WINS!!!!!`
+        } else{
+            scoreBoard2.innerHTML = `Dealer's Score is ${score2}, PLAYER WINS!!!`
+        }
+    } 
+
+    
 
     const shuffle = async() =>{
         try{
@@ -55,6 +70,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 deck.appendChild(stay)
                 deck.appendChild(hit)
                 cardValue(drawCards.data["cards"][i]["value"])
+                //deck.removeChild(".start")
             }
 
         }catch(err){
