@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
     hit.addEventListener  ("click",  ()=>{
         addCard(deck_id)
-        //cardValue()
+        
     })
     stay.addEventListener ("click", () => {
         dealerHand(deck_id)
