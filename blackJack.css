@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://ui-promotions.sportsbetting.ag/images/promotions/sportsbetting-mlp-945-25000-joker-tournament-mobile.png");
+    background-image: url("https://www.makeplayingcards.com/images/site/risingsun/ks-201901-07.gif");
     background-size: cover;
     margin-left: 100px;
 }
@@ -7,7 +7,7 @@ body{
 h1{
     margin-left: 500px;
     /* font-size: x-large; */
-    color:white;
+    color:#FEDD03;
 }
 .blackJack{
     margin-left: 400px;
@@ -19,7 +19,7 @@ h1{
     margin-left: 470px;
     margin-top: -40px;
     font-weight: bold;
-    color: white;
+    color: #FEDD03;
 }
 .start{
     width: 125px;
@@ -37,7 +37,7 @@ h1{
     margin-left: 50px;
     font-weight: bolder;
     font-size: x-large;
-    color:white;
+    color:#FEDD03;
 }
 .dealer{
     margin-bottom: 100px;
