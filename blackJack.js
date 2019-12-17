@@ -123,6 +123,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }  
     start.addEventListener("click",  ()=>{
         drawTwo(deck_id)
+        start.style.display = "none"
+        
         //cardValue()
     })
     hit.addEventListener  ("click",  ()=>{
@@ -131,6 +133,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
     stay.addEventListener ("click", () => {
         dealerHand(deck_id)
+        
     })
     
     shuffle()

@@ -5,9 +5,10 @@ body{
 }
 
 h1{
-    margin-left: 500px;
+
+    margin-left: 400px;
     /* font-size: x-large; */
-    color:#FEDD03;
+    color:white;
 }
 .blackJack{
     margin-left: 400px;
@@ -17,9 +18,9 @@ h1{
     font-size: x-large;
     padding: 20px;
     margin-left: 470px;
-    margin-top: -40px;
+    margin-top: -80px;
     font-weight: bold;
-    color: #FEDD03;
+    color: white;
 }
 .start{
     width: 125px;
@@ -37,7 +38,7 @@ h1{
     margin-left: 50px;
     font-weight: bolder;
     font-size: x-large;
-    color:#FEDD03;
+    color:white;
 }
 .dealer{
     margin-bottom: 100px;
