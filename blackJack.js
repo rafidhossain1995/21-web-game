@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         } else if (card2){
             score2 += Number(card2)
         }
-        if(score2 = 21){
+        if(score2 === 21){
             scoreBoard2.innerHTML = `21 DEALER WINS!!!!`
         
         } else if(score2 > 21){
