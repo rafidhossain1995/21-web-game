@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://c8.alamy.com/comp/J26R3M/poker-chips-on-green-felt-casino-table-gambling-poker-blackjack-and-J26R3M.jpg");
+    background-image: url("https://ui-promotions.sportsbetting.ag/images/promotions/sportsbetting-mlp-945-25000-joker-tournament-mobile.png");
     background-size: cover;
     margin-left: 100px;
 }
@@ -7,6 +7,7 @@ body{
 h1{
     margin-left: 500px;
     /* font-size: x-large; */
+    color:white;
 }
 .blackJack{
     margin-left: 400px;
@@ -18,6 +19,7 @@ h1{
     margin-left: 470px;
     margin-top: -40px;
     font-weight: bold;
+    color: white;
 }
 .start{
     width: 125px;
@@ -35,7 +37,11 @@ h1{
     margin-left: 50px;
     font-weight: bolder;
     font-size: x-large;
+    color:white;
 }
 .dealer{
     margin-bottom: 100px;
+}
+.cards{
+    margin-bottom: 30px;
 }

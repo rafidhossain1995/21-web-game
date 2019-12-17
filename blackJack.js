@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     const shuffle = async() =>{
         try{
-            let start = document.querySelector(".start")
+            let deck = document.querySelector(".start")
+            let img = document.createElement("img")
             let res = await axios.get("https://deckofcardsapi.com/api/deck/new/") 
             deck_id = res.data.deck_id;
             let shuffled = await axios.get(`https://deckofcardsapi.com/api/deck/${deck_id}/shuffle/`)
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         try{
             let drawCards =  await axios.get(`https://deckofcardsapi.com/api/deck/${id}/draw/?count=2`)
             let deck = document.querySelector(".cards")
-            //deck.innerHTML = ""
+            deck.innerHTML = ""
             for(let i = 0; i < drawCards.data.cards.length; i++){
                 console.log(drawCards.data["cards"][i]["value"])
                 //debugger
@@ -102,7 +103,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.log(err)
         }
     }
-    const dealerHand = async() =>{
+    const dealerHand = async(card) =>{
         try{
             let drawCards = await axios.get (`https://deckofcardsapi.com/api/deck/new/draw/?count=3`)
             let opponentDeck = document.querySelector(".dealer")
@@ -111,7 +112,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 let img3 = document.createElement("img")
                 let src3 = drawCards.data["cards"][i]["image"]
                 img3.src = src3 
-                opponentDeck.appendChild(img3)
+                document.body.appendChild(img3)
                 //opponentDeck.appendChild(stay)
                 //opponentDeck.appendChild(hit)
                 dealerValue(drawCards.data["cards"][i]["value"])
